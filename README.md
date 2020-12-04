@@ -1,4 +1,4 @@
-# muti_gentic_secondary_analysis
+# Post-GWAS-bioannotation
 
 # prerequisite 
 - MetaXcan: https://github.com/hakyimlab/MetaXcan/blob/master/software/MulTiXcan.py
