@@ -5,7 +5,7 @@ RUN apt -y update
 RUN apt -y install python2
 RUN apt -y install curl
 RUN apt-get -y install software-properties-common
-RUN apt-get -y install python-software-properties
+#RUN apt-get -y install python-software-properties
 
 RUN add-apt-repository universe
 
