@@ -1,7 +1,10 @@
 ARG BASE_CONTAINER=ubuntu:20.04
 FROM $BASE_CONTAINER
 
-RUN apt -y install python2.7 python-pip
+RUN apt -y install python2.7 
+RUN apt -y install python2-pip
+
+RUN pip2 install --no-cache-dir bitarray
 
 RUN pip install --no-cache-dir --upgrade pip
 #RUN pip3 install --no-cache-dir Cython
