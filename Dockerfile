@@ -3,7 +3,7 @@ FROM $BASE_CONTAINER
 
 RUN apt -y update
 RUN apt -y install python2
-RUN apt install curl
+RUN apt -y install curl
 #RUN sudo add-apt-repository universe
 
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
