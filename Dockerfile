@@ -2,19 +2,19 @@ ARG BASE_CONTAINER=ubuntu:20.04
 FROM $BASE_CONTAINER
 
 RUN apt -y update
-RUN apt -y install python2
 # RUN apt -y install curl
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt -y install python3.7
+RUN apt -y install python3-pip
+
 RUN apt -y install python2
+RUN add-apt-repository universe
+RUN apt -y install curl
+RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+
 
 # #RUN apt-get -y install python-software-properties
-
-# RUN add-apt-repository universe
-
-# RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
-# RUN python2 get-pip.py
+RUN python2 get-pip.py
 
 #RUN python -V
 RUN python2 -V
