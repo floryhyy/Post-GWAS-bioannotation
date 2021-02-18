@@ -1,7 +1,8 @@
 ARG BASE_CONTAINER=ubuntu:20.04
 FROM $BASE_CONTAINER
 
-RUN apt -y install python2.7 
+RUN apt -y update
+RUN apt -y install python2
 RUN apt -y install python2-pip
 
 RUN pip2 install --no-cache-dir bitarray
