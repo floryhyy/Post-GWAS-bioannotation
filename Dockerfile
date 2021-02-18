@@ -4,7 +4,10 @@ FROM $BASE_CONTAINER
 RUN apt -y update
 RUN apt -y install python2
 RUN apt -y install curl
-#RUN sudo add-apt-repository universe
+RUN apt-get -y install software-properties-common
+RUN apt-get -y install python-software-properties
+
+RUN add-apt-repository universe
 
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 RUN python2 get-pip.py
