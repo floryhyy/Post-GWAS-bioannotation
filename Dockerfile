@@ -11,9 +11,8 @@ RUN apt -y install python2
 RUN add-apt-repository universe
 RUN apt -y install curl
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
-
-
-# #RUN apt-get -y install python-software-properties
+RUN apt-get -y install python-software-properties
+RUN apt -y update
 RUN python2 get-pip.py
 
 #RUN python -V
