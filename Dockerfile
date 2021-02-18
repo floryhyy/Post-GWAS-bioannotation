@@ -16,8 +16,9 @@ RUN apt -y install python2
 # RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 # RUN python2 get-pip.py
 
-RUN python -V
+#RUN python -V
 RUN python2 -V
+RUN python3 -V
 RUN python2 -m pip install --no-cache-dir bitarray
 
 RUN pip install --no-cache-dir --upgrade pip
