@@ -4,7 +4,11 @@ FROM $BASE_CONTAINER
 RUN apt -y update
 RUN apt -y install python2
 # RUN apt -y install curl
-# RUN apt-get -y install software-properties-common
+RUN apt-get -y install software-properties-common
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt -y install python3.7
+RUN apt -y install python2
+
 # #RUN apt-get -y install python-software-properties
 
 # RUN add-apt-repository universe
