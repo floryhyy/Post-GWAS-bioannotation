@@ -12,6 +12,9 @@ RUN apt -y install curl
 RUN curl https://bootstrap.pypa.io/2.7/get-pip.py --output get-pip.py
 RUN python2 get-pip.py
 
+RUN apt-get -y  install python-dev   
+RUN apt-get -y install python3-dev
+
 RUN python2 -V
 RUN python3 -V
 RUN pip3 --version
