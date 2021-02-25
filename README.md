@@ -22,21 +22,30 @@
   - for H-MAGMA, download MAGMA v1.08 https://ctg.cncr.nl/software/magma, and put into "Codes" folder of H-MAGMA
 
 # install docker container
-  $ docker pull floryhyy/postgwas
+  - download and install docker desktop
   
-  $ docker run -dt --name my_postgwas floryhyy/postgwas
-  
-    b6a04200ad91000a93300c22c92a949c1297c15136da99551362b3d7fb747e98
+    https://www.docker.com/get-started
     
-  $ docker ps -a
-  
-    CONTAINER ID   IMAGE                  COMMAND       CREATED         STATUS                      PORTS                    NAMES
+    (after installation it may ask you to register a docker account, I am not sure if this step is necessary, you can try skip it)
     
-    b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds                                         my_postgwas
+    There will be some tutorial after installation, you can just ignore those
     
-  $ docker exec -it my_postgwas bash
+  - open a terminal open you computer and input following command:
+    $ docker pull floryhyy/postgwas
+ 
+    $ docker run -dt --name my_postgwas floryhyy/postgwas
   
-  root@b6a04200ad91:/#
+      b6a04200ad91000a93300c22c92a949c1297c15136da99551362b3d7fb747e98
+    
+    $ docker ps -a
+  
+      CONTAINER ID   IMAGE                  COMMAND       CREATED         STATUS                      PORTS                    NAMES
+    
+      b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds                                         my_postgwas
+    
+    $ docker exec -it my_postgwas bash
+  
+    root@b6a04200ad91:/#
 
 # LDSC sample data download:
   - Inside docker
