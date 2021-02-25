@@ -36,4 +36,6 @@ RUN pip2 install --no-cache-dir pybedtools
 RUN pip2 install --no-cache-dir scipy
 RUN pip2 install --no-cache-dir pandas
 RUN pip2 install --no-cache-dir numpy
+RUN git clone https://github.com/bulik/ldsc.git
+RUN git clone https://github.com/hakyimlab/MetaXcan
 
