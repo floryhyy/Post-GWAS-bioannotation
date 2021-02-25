@@ -36,5 +36,10 @@ b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds
 $ docker exec -it my_postgwas bash
 root@b6a04200ad91:/#
 
+#Inside docker
+root@b6a04200ad91:/# cd home
+root@b6a04200ad91:/home# git clone https://github.com/bulik/ldsc.git
+
+
 
   
