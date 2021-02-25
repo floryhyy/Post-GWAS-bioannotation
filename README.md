@@ -40,9 +40,11 @@
 
 # LDSC sample data download:
   - Inside docker
+  - 
   root@b6a04200ad91:/# cd ldsc
   
   - download data
+  - 
   root@b6a04200ad91:/ldsc# wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
   
   root@b6a04200ad91:/ldsc# wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
@@ -69,7 +71,7 @@
   
 # munge data and get heritability score
   - go back to docker container and inside ldsc folder
-  - 
+
   root@131c7182addc:/ldsc# mkdir sumstats
   
   root@131c7182addc:/ldsc# mkdir result
