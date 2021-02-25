@@ -20,4 +20,21 @@
   
   - Once you got the enviorments set up, clone github repository for MetaXcan and  H-MAGMA and ldsc locally(recommend using Github desktop if you are not familiar with commandline), and install all required package of MetaXcan in python3 enviorment, and all required packege for ldsc in python2 enviorment. 
   - for H-MAGMA, download MAGMA v1.08 https://ctg.cncr.nl/software/magma, and put into "Codes" folder of H-MAGMA
+
+# install docker container
+ 
+$ docker pull floryhyy/postgwas
+
+$ docker run -dt --name my_postgwas floryhyy/postgwas
+b6a04200ad91000a93300c22c92a949c1297c15136da99551362b3d7fb747e98
+
+$ docker ps -a
+CONTAINER ID   IMAGE                  COMMAND       CREATED         STATUS                      PORTS                    NAMES
+b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds                                         my_postgwas
+
+#now you can execute command on the container
+$ docker exec -it my_postgwas bash
+root@b6a04200ad91:/#
+
+
   
