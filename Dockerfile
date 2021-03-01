@@ -37,6 +37,12 @@ RUN pip2 install --no-cache-dir pybedtools
 RUN pip2 install --no-cache-dir scipy
 RUN pip2 install --no-cache-dir pandas
 RUN pip2 install --no-cache-dir numpy
+RUN cd home
 RUN git clone https://github.com/bulik/ldsc.git
+RUN cd ldsc
+RUN wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
+RUN wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
+RUN tar -jxvf eur_w_ld_chr.tar.bz2
+RUN bunzip2 w_hm3.snplist.bz2
 RUN git clone https://github.com/hakyimlab/MetaXcan
 
