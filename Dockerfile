@@ -44,7 +44,9 @@ RUN cd home/ldsc && tar -jxvf eur_w_ld_chr.tar.bz2
 RUN cd home/ldsc && bunzip2 w_hm3.snplist.bz2
 RUN cd home/ldsc && mkdir data
 RUN cd home && git clone https://github.com/hakyimlab/MetaXcan
-#RUN cd MetaXcan/software/data
-#RUN wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
-#RUN wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
+
+RUN cd home/MetaXcan/software && mkdir data
+RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
+RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
+RUN cd home/MetaXcan/software/data && tar -xvf elastic_net_eqtl.tar && mv elastic_net_models Models
 
