@@ -9,7 +9,7 @@ RUN apt -y install python3-pip
 RUN apt -y install python2
 RUN add-apt-repository universe
 RUN apt -y install curl
-RUN curl https://bootstrap.pypa.io/2.7/get-pip.py --output get-pip.py
+RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
 RUN python2 get-pip.py
 
 RUN apt-get -y  install python-dev   
