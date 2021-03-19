@@ -42,7 +42,7 @@ RUN cd home/ldsc && wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_
 RUN cd home/ldsc && wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
 RUN cd home/ldsc && tar -jxvf eur_w_ld_chr.tar.bz2
 RUN cd home/ldsc && bunzip2 w_hm3.snplist.bz2
-RUN cd home/ldsc && mkdir data
+RUN cd home/ldsc && mkdir data && mkdir sumstats && mkdir result
 RUN cd home && git clone https://github.com/hakyimlab/MetaXcan
 
 RUN cd home/MetaXcan/software && mkdir data
