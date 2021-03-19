@@ -38,11 +38,11 @@ RUN pip2 install --no-cache-dir scipy
 RUN pip2 install --no-cache-dir pandas
 RUN pip2 install --no-cache-dir numpy
 RUN cd home && git clone https://github.com/bulik/ldsc.git
-RUN cd ldsc && wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
-RUN cd ldsc && wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
-RUN cd ldsc && tar -jxvf eur_w_ld_chr.tar.bz2
-RUN cd ldsc && bunzip2 w_hm3.snplist.bz2
-RUN cd ldsc && mkdir data
+RUN cd home/ldsc && wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
+RUN cd home/ldsc && wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
+RUN cd home/ldsc && tar -jxvf eur_w_ld_chr.tar.bz2
+RUN cd home/ldsc && bunzip2 w_hm3.snplist.bz2
+RUN cd home/ldsc && mkdir data
 RUN cd home && git clone https://github.com/hakyimlab/MetaXcan
 #RUN cd MetaXcan/software/data
 #RUN wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
