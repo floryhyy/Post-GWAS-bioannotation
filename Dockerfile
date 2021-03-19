@@ -44,5 +44,12 @@ RUN wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
 RUN wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
 RUN tar -jxvf eur_w_ld_chr.tar.bz2
 RUN bunzip2 w_hm3.snplist.bz2
+RUN mkdir data
+RUN cd ..
 RUN git clone https://github.com/hakyimlab/MetaXcan
+RUN cd MetaXcan/software
+RUN mkdir data
+RUN cd data
+RUN wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
+RUN wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
 
