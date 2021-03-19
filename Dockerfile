@@ -47,7 +47,7 @@ RUN bunzip2 w_hm3.snplist.bz2
 RUN mkdir data
 RUN cd ..
 RUN git clone https://github.com/hakyimlab/MetaXcan
-RUN cd MetaXcan/software/data
-RUN wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
-RUN wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
+#RUN cd MetaXcan/software/data
+#RUN wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
+#RUN wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
 
