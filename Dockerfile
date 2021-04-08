@@ -43,11 +43,16 @@ RUN cd home/ldsc && wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm
 RUN cd home/ldsc && tar -jxvf eur_w_ld_chr.tar.bz2
 RUN cd home/ldsc && bunzip2 w_hm3.snplist.bz2
 RUN cd home/ldsc && mkdir data && mkdir sumstats && mkdir result
-RUN cd home && git clone https://github.com/hakyimlab/MetaXcan
 
+RUN cd home && git clone https://github.com/hakyimlab/MetaXcan
 RUN cd home/MetaXcan/software && mkdir data
 RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
 RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
-RUN cd home/MetaXcan/software/data && tar -xvf elastic_net_eqtl.tar 
-RUN cd home/MetaXcan/software/data && mv elastic_net_models Models
+# RUN cd home/MetaXcan/software/data && tar -xvf elastic_net_eqtl.tar 
+# RUN cd home/MetaXcan/software/data && mv elastic_net_models Models
+
+RUN cd home && git clone https://github.com/thewonlab/H-MAGMA
+RUN cd home/H-MAGMA/Codes && wget https://ctg.cncr.nl/software/MAGMA/prog/magma_v1.09.zip && unzip magma_v1.09.zip
+RUN cd home/H-MAGMA/Codes && wget https://ctg.cncr.nl/software/MAGMA/ref_data/g1000_eur.zip && unzip g1000_eur.zip
+
 
