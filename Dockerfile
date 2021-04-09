@@ -52,7 +52,7 @@ RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/fil
 # RUN cd home/MetaXcan/software/data && mv elastic_net_models Models
 
 RUN cd home && git clone https://github.com/thewonlab/H-MAGMA
-RUN cd home/H-MAGMA/Codes && wget https://ctg.cncr.nl/software/MAGMA/prog/magma_v1.09.zip && unzip magma_v1.09.zip
-RUN cd home/H-MAGMA/Codes && wget https://ctg.cncr.nl/software/MAGMA/ref_data/g1000_eur.zip && unzip g1000_eur.zip
+#RUN cd home/H-MAGMA/Codes && wget https://ctg.cncr.nl/software/MAGMA/prog/magma_v1.09.zip && unzip magma_v1.09.zip
+#RUN cd home/H-MAGMA/Codes && wget https://ctg.cncr.nl/software/MAGMA/ref_data/g1000_eur.zip && unzip g1000_eur.zip
 
 
