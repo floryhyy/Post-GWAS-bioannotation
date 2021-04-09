@@ -46,8 +46,8 @@ RUN cd home/ldsc && mkdir data && mkdir sumstats && mkdir result
 
 RUN cd home && git clone https://github.com/hakyimlab/MetaXcan
 RUN cd home/MetaXcan/software && mkdir data
-RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
-RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
+#RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1
+#RUN cd home/MetaXcan/software/data && wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1
 # RUN cd home/MetaXcan/software/data && tar -xvf elastic_net_eqtl.tar 
 # RUN cd home/MetaXcan/software/data && mv elastic_net_models Models
 
