@@ -16,9 +16,14 @@
         b6a04200ad91000a93300c22c92a949c1297c15136da99551362b3d7fb747e98
         $ docker ps -a
         CONTAINER ID   IMAGE                  COMMAND       CREATED         STATUS                      PORTS                    NAMES
-        b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds                                         my_postgwas
-        $ docker exec -it my_postgwas bash
+        b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds                                         postgwas
+        $ docker exec -it postgwas bash
         root@b6a04200ad91:/#
+        
+        if encounter this error:
+        $ docker exec -it postgwas bash                                                                                        
+        Error response from daemon: Container 153a8260ec95c9b52e557d29821144cbeed544be438ebb891956550da6e30e2d is not running   (base) 
+        Run $ docker start postgwas
         
   - if you need to update the docker image, delet the old one first, then repeat the above commend
   - command for deleting:
@@ -26,18 +31,41 @@
         $ docker container rm postgwas  
         $ docker image rm floryhyy/postgwas  
 
-# LDSC sample data download:
+# Extra data for packages download:
   - Inside docker
         
-        root@b6a04200ad91:/# cd ldsc
+        root@b6a04200ad91:/# cd home
   
-  - download data
+  - download data for MetaXcan
+  
+        root@153a8260ec95:/home# cd MetaXcan/software/data
+        root@153a8260ec95:/home/MetaXcan/software/data# wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz
+        #check if data download successfully:
+        root@153a8260ec95:/home/MetaXcan/software/data# ls                                                                      gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz 
+        #download Models
+        root@153a8260ec95:/home/MetaXcan/software/data# wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar
+        root@153a8260ec95:/home/MetaXcan/software/data# tar -xvf elastic_net_eqtl.tar
+        root@153a8260ec95:/home/MetaXcan/software/data# mv elastic_net_models/ Models 
+        
+        #remove extra file, this step is not required.
+        root@153a8260ec95:/home/MetaXcan/software/data# rm elastic_net_eqtl.tar  
+        root@153a8260ec95:/home/MetaXcan/software/data# cd Models/ 
+        # keep only brain tissues
+        root@153a8260ec95:/home/MetaXcan/software/data/Models# rm en_[^B]*
+        root@153a8260ec95:/home/MetaXcan/software/data/Models# rm en_Brea*       
+        
+    - dowload data for HMAGMA
+    -   
+        
+        
+        
+        
+        
+        
+        
+        
+        
  
-        root@b6a04200ad91:/ldsc# wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
-        root@b6a04200ad91:/ldsc# wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
-        root@b6a04200ad91:/ldsc# tar -jxvf eur_w_ld_chr.tar.bz2
-        root@b6a04200ad91:/ldsc# bunzip2 w_hm3.snplist.bz2
-        root@b6a04200ad91:/ldsc# mkdir data
   
   - download gwas file on your computer(not in docker container)
  
