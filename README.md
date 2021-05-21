@@ -54,10 +54,13 @@
         root@153a8260ec95:/home/MetaXcan/software/data/Models# rm en_[^B]*
         root@153a8260ec95:/home/MetaXcan/software/data/Models# rm en_Brea*       
         
-    - dowload data for HMAGMA
-    -   
+  - dowload data for HMAGMA
         
+        root@153a8260ec95:/home/H-MAGMA# cd Codes/ 
+        root@153a8260ec95:/home/H-MAGMA/Codes# wget https://ctg.cncr.nl/software/MAGMA/prog/magma_v1.09a.zip  
+        root@153a8260ec95:/home/H-MAGMA/Codes# unzip magma_v1.09a.zip   
         
+        https://ctg.cncr.nl/software/MAGMA/ref_data/g1000_eur.zip
         
         
         
