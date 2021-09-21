@@ -4,8 +4,7 @@ hmagma_path='/home/H-MAGMA/Codes'
 ldsc_path='/home/GitHub/ldsc'
 current=$PWD
 
-# bash analysis.sh SNP BETA 999 P A1 A2 999 999 387649 999
-filename='chr1.assoc.dosage.gz'
+# bash analysis.sh SNP BETA 999 P A1 A2 999 387649 999 chr1.assoc.dosage.gz
 snp=$1
 beta=$2
 z=$3
@@ -14,8 +13,8 @@ a1=$5
 a2=$6
 ncol=$7
 n=$8
-'387649'
 ignore=$9
+filename=${10}
 
 echo ${filename/.gz/}
 
