@@ -62,6 +62,7 @@ if __name__ == '__main__':
     filename = sys.argv[2]
     analysis = sys.argv[3]
 
+    print(sys.argv)
     snp=sys.argv[4]
     beta=sys.argv[5]
     z=sys.argv[6]
