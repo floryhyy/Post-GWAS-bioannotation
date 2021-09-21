@@ -5,7 +5,7 @@ ldsc_path='/home/GitHub/ldsc'
 current=$PWD
 
 filename='chr1.assoc.dosage.gz'
-snp='SNP'
+snp=$1
 beta='BETA'
 z='""'
 p='P'
