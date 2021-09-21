@@ -5,18 +5,9 @@ ldsc_path='/home/GitHub/ldsc'
 current=$PWD
 
 filename='chr1.assoc.dosage.gz'
-while getopts snp:beta: option
-    do
-        case "${option}"
-            in
-            snp) snp=${OPTARG};;
-            beta) beta=${OPTARG};;
-    esac
-done
-
-#snp=$1
-#beta=$2
-z='""'
+snp=$1
+beta=$2
+z=$3
 p='P'
 a1='A1'
 a2='A2'
