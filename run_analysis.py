@@ -36,7 +36,7 @@ def hmagma(current_path,filename,snp,p,ncol,n):
     if n !='':
         use = snp+','+p+' N='+n
     hmagma=re.sub('(?<=use\=).+(?= --gene-annot)',use,hmagma)
-    hmagma=re.sub('magma_v1.08_win/magma','magma',hmagma)
+    hmagma=re.sub('magma_v1.08_win/magma','./magma',hmagma)
     ls  = ['Astro','Fetal_brain','Adult_brain','neuro']
     result = [re.sub('(?<=results/HMAGMA_).+?(?=_)',i,re.sub('(?<=Files/).+?(?=.genes)',i,hmagma)) for i in ls]
     print(' && '.join(result))
