@@ -5,7 +5,7 @@ hmagma_path='/c/Users/flori.LAPTOP-SAJS3KG7/Documents/GitHub/H-MAGMA/Codes'
 ldsc_path='/c/Users/flori.LAPTOP-SAJS3KG7/Documents/GitHub/ldsc'
 current=$PWD
 
-filename='chronic_pain-bgen.stats'
+filename='chr1.assoc.dosage.gz'
 snp='SNP'
 beta='BETA'
 z=''
