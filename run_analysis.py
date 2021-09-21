@@ -24,7 +24,6 @@ def spredxcan(current_path,filename,snp,beta,z,p,a1,a2):
     command = re.sub('(?<=--output_file ).+?(?=en)',current_path+'/results/spredxcan/',command)
     command = re.sub('(?<=--metaxcan_folder ).+?(?= --metaxcan_filter)',current_path+'/results/spredxcan',command)
 
-    print(command)
     return smulti_output
 def hmagma(current_path,filename,snp,p,ncol,n):
     hmagma = 'magma_v1.08_win/magma --bfile g1000_eur --pval data/EXTERNALIZING_MA_Problematic_drinking_2019_08_29.tbl.TRUNCATED.txt use=SNP,P ncol=Weight --gene-annot ../Input_Files/neuro.genes.annot --out '
@@ -62,8 +61,6 @@ if __name__ == '__main__':
     filename = sys.argv[2]
     analysis = sys.argv[3]
 
-    print(sys.argv)
-    print(len(sys.argv))
     snp=sys.argv[4]
     beta=sys.argv[5]
     z=sys.argv[6]
