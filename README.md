@@ -74,11 +74,18 @@
   
       root@153a8260ec95:/home# git clone https://github.com/floryhyy/Post-GWAS-bioannotation.git
       root@153a8260ec95:/home# cd Post-GWAS-bioannotation
+      root@153a8260ec95:/home/Post-GWAS-bioannotation# cd results/                                                            
+      root@153a8260ec95:/home/Post-GWAS-bioannotation/results# mkdir hmagma
+      root@153a8260ec95:/home/Post-GWAS-bioannotation/results# cd ..
       
   - To run analysis, use command: 'bash analysis.sh [snp col name] [beta col name] [z col name] [p value col name] [effect allele col name][ non-effect allele col name] [ncol name] [n] [column to be ignore] [gwas file name], for value that your file do not have, put 999. (Only z_col,ncol, and ignore col can be 999).
       Example:
       
       root@153a8260ec95:/home/Post-GWAS-bioannotation# bash analysis.sh SNP BETA 999 P A1 A2 999 387649 999 chr1.assoc.dosage 
+      
+  - To update analysis code:
+      
+      root@153a8260ec95:/home/Post-GWAS-bioannotation# git pull
       
   
   
