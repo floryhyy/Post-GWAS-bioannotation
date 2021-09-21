@@ -19,7 +19,7 @@ ignore=''
 echo ${filename/.gz/}
 
 #run Metaxcan
-spredxcan=`python test.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore spred`
+spredxcan=`python run_analysis.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore spred`
 cd $spred_path
 echo $spredxcan
 eval $spredxcan
@@ -27,14 +27,14 @@ eval $spredxcan
 #run hmagma
 cd $current
 cd $current
-hmagma=`python test.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore  hmagma`
+hmagma=`python run_analysis.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore  hmagma`
 cd $hmagma_path
 echo $hmagma
 eval $hmagma
 
 # run ldsc
 # cd $current
-# ldsc=`python test.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore ldsc`
+# ldsc=`python run_analysis.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore ldsc`
 
 # #if you are currently in enviorment with python3, switch enviorment below
 # eval "$(conda shell.bash hook)"
