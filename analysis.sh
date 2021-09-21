@@ -19,18 +19,18 @@ filename=${10}
 echo ${filename/.gz/}
 
 #run Metaxcan
-spredxcan=`python run_analysis.py $current $filename spred $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
-cd $spred_path
-echo $spredxcan
-eval $spredxcan
+# spredxcan=`python run_analysis.py $current $filename spred $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
+# cd $spred_path
+# echo $spredxcan
+# eval $spredxcan
 
 #run hmagma
-# cd $current
-# cd $current
-# hmagma=`python run_analysis.py $current $filename hmagma $snp $beta $z $p $a1 $a2 $ncol $n $ignore `
-# cd $hmagma_path
-# echo $hmagma
-# eval $hmagma
+cd $current
+cd $current
+hmagma=`python run_analysis.py $current $filename hmagma $snp $beta $z $p $a1 $a2 $ncol $n $ignore `
+cd $hmagma_path
+echo $hmagma
+eval $hmagma
 
 # run ldsc
 # cd $current
