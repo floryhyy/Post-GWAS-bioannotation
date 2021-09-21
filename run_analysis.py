@@ -61,15 +61,15 @@ if __name__ == '__main__':
     current_path = sys.argv[1]
     filename = sys.argv[2]
     analysis = sys.argv[3]
-    snp='SNP'
-    beta='BETA'
-    z=''
-    p='P_BOLT_LMM_INF'
-    a1='ALLELE1'
-    a2='ALLELE0'
-    ncol=''
-    n='387649'
-    ignore=''
+    snp=sys.argv[4]
+    beta=sys.argv[5]
+    z=sys.argv[6]
+    p=sys.argv[7]
+    a1=sys.argv[8]
+    a2=sys.argv[9]
+    ncol=sys.argv[10]
+    n=sys.argv[11]
+    ignore=sys.argv[12]
     if analysis=='spred':
         spred = spredxcan(current_path,filename,snp,beta,z,p,a1,a2)
     elif analysis=='hmagma':

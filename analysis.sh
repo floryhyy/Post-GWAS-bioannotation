@@ -1,13 +1,25 @@
 #!/bin/bash
 spred_path='/c/Users/flori.LAPTOP-SAJS3KG7/Documents/GitHub/sanchez-roige-lab/MetaXcan/software'
+/home/MetaXcan/software
 hmagma_path='/c/Users/flori.LAPTOP-SAJS3KG7/Documents/GitHub/H-MAGMA/Codes'
 ldsc_path='/c/Users/flori.LAPTOP-SAJS3KG7/Documents/GitHub/ldsc'
-filename='chronic_pain-bgen.stats'
 current=$PWD
+
+filename='chronic_pain-bgen.stats'
+snp='SNP'
+beta='BETA'
+z=''
+p='P'
+a1='A1'
+a2='A2'
+ncol=''
+n='387649'
+ignore=''
+
 echo ${filename/.gz/}
 
 #run Metaxcan
-spredxcan=`python test.py $current $filename spred`
+spredxcan=`python test.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore spred`
 cd $spred_path
 echo $spredxcan
 eval $spredxcan
@@ -15,14 +27,14 @@ eval $spredxcan
 #run hmagma
 cd $current
 cd $current
-hmagma=`python test.py $current $filename hmagma`
+hmagma=`python test.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore  hmagma`
 cd $hmagma_path
 echo $hmagma
 eval $hmagma
 
 # run ldsc
 # cd $current
-# ldsc=`python test.py $current $filename ldsc`
+# ldsc=`python test.py $current $filename $snp $beta $z $p $a1 $a2 $ncol $n $ignore ldsc`
 
 # #if you are currently in enviorment with python3, switch enviorment below
 # eval "$(conda shell.bash hook)"
