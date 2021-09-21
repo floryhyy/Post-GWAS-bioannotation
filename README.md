@@ -31,7 +31,7 @@
         $ docker container rm postgwas  
         $ docker image rm floryhyy/postgwas  
 
-# Extra data for packages download:
+# Download supplemental data:
   - Inside docker
         
         root@b6a04200ad91:/# cd home
@@ -50,39 +50,37 @@
         #remove extra file, this step is not required.
         root@153a8260ec95:/home/MetaXcan/software/data# rm elastic_net_eqtl.tar  
         root@153a8260ec95:/home/MetaXcan/software/data# cd Models/ 
-        # keep only brain tissues
-        root@153a8260ec95:/home/MetaXcan/software/data/Models# rm en_[^B]*
-        root@153a8260ec95:/home/MetaXcan/software/data/Models# rm en_Brea*       
         
   - dowload data for HMAGMA
         
         root@153a8260ec95:/home/H-MAGMA# cd Codes/ 
         root@153a8260ec95:/home/H-MAGMA/Codes# wget https://ctg.cncr.nl/software/MAGMA/prog/magma_v1.09a.zip  
         root@153a8260ec95:/home/H-MAGMA/Codes# unzip magma_v1.09a.zip   
-        
-        https://ctg.cncr.nl/software/MAGMA/ref_data/g1000_eur.zip
-        
-        
-        
-        
-        
-        
-        
+        root@153a8260ec95:/home/H-MAGMA/Codes# wget https://ctg.cncr.nl/software/MAGMA/ref_data/g1000_eur.zip 
+        root@153a8260ec95:/home/H-MAGMA/Codes# unzip g1000_eur.zip    
+  
+  - download gwas file on your computer
  
-  
-  - download gwas file on your computer(not in docker container)
- 
-  The pgc file no longer allow direct download so you need to go to their website and fill a form to download manually OR you can use your own gwas file, but the below munge command will need modification
-  
-  https://www.med.unc.edu/pgc/download-results
-  
-  Alternative link to directly download sample pgc file: https://4119f3fb-a-f9436c1e-s-sites.googlegroups.com/a/broadinstitute.org/pgc-summer-school-2015/lecture-materials/pgc.cross.scz.zip
-
+    I am using sample data (chr1.assoc.dosage)from MEtaXcan's readme : https://s3.amazonaws.com/imlab-open/Data/MetaXcan/sample_data/GWAS.tar.gz . But any gwas file would work.
+    
   - Once gwas data is ready, open a new terminal on your computer and copy your gwas file into the docker container with command
   
         $ docker cp [filepath_to_your_gwas_file] [your docker container id, mine was my_postgwas]:ldsc/data
   
-  Example: $ docker cp pgc.cross.SCZ17.2013-05.txt my_postgwas:lsdc   
+  Example: $ docker cp chr1.assoc.dosage postgwas:lsdc   
+  
+# Clone this repostiory and run analysis:
+  - In the docker container's /home folder, clone this repository:
+  
+      root@153a8260ec95:/home# git clone https://github.com/floryhyy/Post-GWAS-bioannotation.git
+      root@153a8260ec95:/home# cd Post-GWAS-bioannotation
+      
+  - To run analysis, use command: 'bash analysis.sh [snp col name] [beta col name] [z col name] [p value col name] [effect allele col name][ non-effect allele col name] [ncol name] [n] [column to be ignore] [gwas file name], for value that your file do not have, put 999. (Only z_col,ncol, and ignore col can be 999).
+      Example:
+      
+      root@153a8260ec95:/home/Post-GWAS-bioannotation# bash analysis.sh SNP BETA 999 P A1 A2 999 387649 999 chr1.assoc.dosage 
+      
+  
   
 # munge data and get heritability score
   - go back to docker container and inside ldsc folder
