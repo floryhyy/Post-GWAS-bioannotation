@@ -37,7 +37,7 @@ def hmagma(current_path,filename,snp,p,ncol,n):
         use = snp+','+p+' N='+n
     hmagma=re.sub('(?<=use\=).+(?= --gene-annot)',use,hmagma)
     hmagma=re.sub('magma_v1.08_win/magma','./magma',hmagma)
-    ls  = ['iPSC_derived_astro','Fetal_brain','Adult_brain','iPSC_derived_neuro']
+    ls  = ['iPSC_derived_astro','Fetal_brain','Adult_brain',' iPSC_derived_neuro']
     result = [re.sub('(?<=results/HMAGMA_).+?(?=_)',i,re.sub('(?<=Files/).+?(?=.genes)',i,hmagma)) for i in ls]
     print(' && '.join(result))
     return [re.sub('.+(?=/results/)','',n).replace('/result/','') for n in result]
