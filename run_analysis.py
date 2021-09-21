@@ -31,7 +31,7 @@ def hmagma(current_path,filename,snp,p,ncol,n):
     output_file = current_path+'/results/HMAGMA_neuro_'+re.sub('(?<=\.).+','',filename).replace('.','')
     hmagma+=output_file
     hmagma=re.sub('(?<=--pval ).+(?= use)',current_path+'/data/'+filename,hmagma)
-    if ncol !='':
+    if ncol !=999:
         use = snp+','+p+' ncol='+ncol
     if n !='':
         use = snp+','+p+' N='+n
@@ -50,7 +50,7 @@ def ldsc(current_path,filename,n,ignore,p,a1,a2):
         ld = re.sub('(?<=--out ).+',current_path+'/results/ldsc/'+filename,ld)
     if n!='':
         munge+=' --N '+n
-    if ignore !='':
+    if ignore !=999:
         munge+=' --ignore '+ignore
     munge+=' --a1 '+a1
     munge+=' --a2 '+a2
