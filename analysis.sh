@@ -16,7 +16,6 @@ n=$8
 ignore=$9
 filename=${10}
 
-echo ${filename/.gz/}
 
 #run Metaxcan
 # spredxcan=`python run_analysis.py $current $filename spred $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
@@ -25,8 +24,8 @@ echo ${filename/.gz/}
 # eval $spredxcan
 
 #run hmagma
-cd $hmagma_path
-hmagma=`python run_analysis.py $current $filename hmagma $snp $beta $z $p $a1 $a2 $ncol $n $ignore `
+cd $current
+hmagma=`python run_analysis.py $current $filename hmagma $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
 cd $hmagma_path
 echo $hmagma
 eval $hmagma
