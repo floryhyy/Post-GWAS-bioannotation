@@ -5,7 +5,7 @@ ldsc_path='/home/GitHub/ldsc'
 current=$PWD
 
 filename='chr1.assoc.dosage.gz'
-while getopts u:d:p:f: option
+while getopts snp:beta: option
     do
         case "${option}"
             in
