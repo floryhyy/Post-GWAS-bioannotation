@@ -20,7 +20,7 @@ def spredxcan(current_path,filename,snp,beta,z,p,a1,a2):
     command = re.sub(' P ',' '+p+' ',command)
     command = re.sub(' A1 ',' '+a1+' ',command)
     command = re.sub(' A2 ',' '+a2+' ',command)
-    command = re.sub('./MetaXcan.py','./SPrediXcan.py',command)
+    command = re.sub('./MetaXcan.py','python3 SPrediXcan.py',command)
     command = re.sub('(?<=--output_file ).+?(?=en)',current_path+'/results/spredxcan/',command)
     command = re.sub('(?<=--metaxcan_folder ).+?(?= --metaxcan_filter)',current_path+'/results/spredxcan',command)
 
