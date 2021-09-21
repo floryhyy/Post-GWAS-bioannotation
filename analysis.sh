@@ -25,8 +25,7 @@ echo ${filename/.gz/}
 # eval $spredxcan
 
 #run hmagma
-cd $current
-cd $current
+cd $hmagma_path
 hmagma=`python run_analysis.py $current $filename hmagma $snp $beta $z $p $a1 $a2 $ncol $n $ignore `
 cd $hmagma_path
 echo $hmagma
