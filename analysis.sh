@@ -7,13 +7,13 @@ current=$PWD
 filename='chr1.assoc.dosage.gz'
 snp='SNP'
 beta='BETA'
-z=''
+z='""'
 p='P'
 a1='A1'
 a2='A2'
-ncol=''
+ncol='""'
 n='387649'
-ignore=''
+ignore='""'
 
 echo ${filename/.gz/}
 
