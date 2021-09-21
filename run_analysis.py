@@ -28,7 +28,7 @@ def spredxcan(current_path,filename,snp,beta,z,p,a1,a2):
     return smulti_output
 def hmagma(current_path,filename,snp,p,ncol,n):
     hmagma = 'magma_v1.08_win/magma --bfile g1000_eur --pval data/EXTERNALIZING_MA_Problematic_drinking_2019_08_29.tbl.TRUNCATED.txt use=SNP,P ncol=Weight --gene-annot ../Input_Files/neuro.genes.annot --out '
-    output_file = current_path+'/results/HMAGMA_neuro_'+re.sub('(?<=\.).+','',filename).replace('.','')
+    output_file = current_path+'/results/hmagma/HMAGMA_neuro_'+re.sub('(?<=\.).+','',filename).replace('.','')
     hmagma+=output_file
     hmagma=re.sub('(?<=--pval ).+(?= use)',current_path+'/data/'+filename,hmagma)
     if ncol !=999:
@@ -38,7 +38,7 @@ def hmagma(current_path,filename,snp,p,ncol,n):
     hmagma=re.sub('(?<=use\=).+(?= --gene-annot)',use,hmagma)
     hmagma=re.sub('magma_v1.08_win/magma','./magma',hmagma)
     ls  = ['iPSC_derived_astro','Fetal_brain','Adult_brain',' iPSC_derived_neuro']
-    result = [re.sub('(?<=results/HMAGMA_).+?(?=_)',i.strip(),re.sub('(?<=Files/).+?(?=.genes)',i.strip(),hmagma)) for i in ls]
+    result = [re.sub('(?<=results/hmagma/HMAGMA_).+?(?=_)',i.strip(),re.sub('(?<=Files/).+?(?=.genes)',i,hmagma)) for i in ls]
     print(' && '.join(result))
     return [re.sub('.+(?=/results/)','',n).replace('/result/','') for n in result]
 def ldsc(current_path,filename,n,ignore,p,a1,a2):        
