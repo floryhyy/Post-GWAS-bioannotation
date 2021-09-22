@@ -80,12 +80,12 @@
         root@153a8260ec95:/home/Post-GWAS-bioannotation/results# mkdir ldsc 
         root@153a8260ec95:/home/Post-GWAS-bioannotation/results# cd ..
       
-  - To run analysis, use command: 'bash analysis.sh [snp col name] [beta col name] [z col name] [p value col name] [effect allele col name][ non-effect allele col name] [ncol name] [n] [column to be ignore] [gwas file name], for value that your file do not have, put 999. (Only z_col,ncol, and ignore col can be 999).
+  - To run analysis, use command: 'bash analysis.sh [snp col name] [beta col name] [z col name] [p value col name] [effect allele col name][ non-effect allele col name] [ncol name] [n] [column to be ignore] [gwas file name], for value that your file do not have, put 999. (Only z_col,ncol, and ignore col can be 999). (if any error happened during HMAGMA analysis, change file name in HMAGMA/Input_files folder, there is one file has an extra space in the name, just a small bug with current hmagma version)
       Example:
       
         root@153a8260ec95:/home/Post-GWAS-bioannotation# bash analysis.sh SNP BETA 999 P A1 A2 999 387649 999 chr1.assoc.dosage 
         
-  -  The code will run analysis for Spredixcan, Smultixcan,hmagma,and ldsc. You can find their result file in the 'Post-GWAS-bioannotation/results'. After you ran analysis for one file, you need to changed the folder name of spredixcan result (Post-GWAS-bioannotation/results/spredxcan) to other name(like spredxcan_filename), otherwise the spredixcan and Smultixcan will not run for the next new file. 
+  -  The code will run analysis for Spredixcan, Smultixcan,hmagma,and ldsc. You can find their result file in the 'Post-GWAS-bioannotation/results'. After you ran analysis for one file, you need to change the folder name of spredixcan result (Post-GWAS-bioannotation/results/spredxcan) to other name(like spredxcan_filename), otherwise the spredixcan and Smultixcan will not run for the next new file. 
       Examoke:
       
         root@153a8260ec95:/home/Post-GWAS-bioannotation/results# mv spredxcan spredxcan_chr1.assoc.dosage 
