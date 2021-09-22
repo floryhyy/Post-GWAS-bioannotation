@@ -38,8 +38,8 @@ ldsc=`python run_analysis.py $current $filename ldsc $snp $beta $z $p $a1 $a2 $n
 # eval "$(conda shell.bash hook)"
 # conda activate python27
 
-# cd $ldsc_path
-# echo $ldsc
-# eval $ldsc
+cd $ldsc_path
+echo $ldsc
+eval $ldsc
 
 
