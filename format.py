@@ -2,7 +2,7 @@ import re
 import sys
 import pandas as pd
 def no_fuma_format(filename):
-    spred_file = 'SMultiXcan_Brain_v8_'+filename+'csv'
+    spred_file = 'SMultiXcan_Brain_v8_'+filename+'.csv'
     spred_fp = 'results/'+spred_file
 
     #please fill in file name for hmagma result seperately 
