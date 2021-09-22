@@ -51,7 +51,7 @@ def ldsc(current_path,filename,n,ignore,p,a1,a2):
         ld = re.sub('(?<=--out ).+',current_path+'/results/ldsc/'+filename,ld)
     if n!='':
         munge+=' --N '+n
-    if ignore !=999:
+    if ignore !='999':
         munge+=' --ignore '+ignore
     munge+=' --a1 '+a1
     munge+=' --a2 '+a2
