@@ -1,26 +1,5 @@
 # Post-GWAS-bioannotation
 
-# prerequisite 
-- MetaXcan: https://github.com/hakyimlab/MetaXcan/blob/master/software/MulTiXcan.py
-- H-MAGMA: https://github.com/thewonlab/H-MAGMA
-- ldsc: https://github.com/bulik/ldsc 
-  If you do not already have the above package setup and function well on your computer, first stpes is to set up two environment with python3 and python2 (Since ldsc is written in python2 while metaxcan is in python3). Normally, you can install python3 directly and create a new enviorment that has python2 in. 
-  Recommended install Anaconda for creating new enviorment and install packages. https://docs.anaconda.com/anaconda/install/. 
-  # Instruction for using Anaconda:
-    download Anaconda for python3 (Anaconda3) first, and set the base enviorment with python3 to be your default enviorment as promoted
-    Then create a new python2 enviorment with anaconda and install python2 in it. 
-      - a good way to test if python2 and python3 is properly installed is by typing python (or python3 or python2,depends on how you set the name) in command line, and see if it open a python code terminal and allow you to type python code directly like :
-
-      $python
-      Python 3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)] :: Anaconda, Inc. on win32
-      Type "help", "copyright", "credits" or "license" for more information.
-      >>>1+1
-      2
-      >>>
-  
-  - Once you got the enviorments set up, clone github repository for MetaXcan and  H-MAGMA and ldsc locally(recommend using Github desktop if you are not familiar with commandline), and install all required package of MetaXcan in python3 enviorment, and all required packege for ldsc in python2 enviorment. 
-  - for H-MAGMA, download MAGMA v1.08 https://ctg.cncr.nl/software/magma, and put into "Codes" folder of H-MAGMA
-
 # install docker container
   - download and install docker desktop
   
@@ -33,42 +12,96 @@
   - open a terminal open you computer and input following command:
     
         $ docker pull floryhyy/postgwas
-        $ docker run -dt --name my_postgwas floryhyy/postgwas
+        $ docker run -dt --name postgwas floryhyy/postgwas
         b6a04200ad91000a93300c22c92a949c1297c15136da99551362b3d7fb747e98
         $ docker ps -a
         CONTAINER ID   IMAGE                  COMMAND       CREATED         STATUS                      PORTS                    NAMES
-        b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds                                         my_postgwas
-        $ docker exec -it my_postgwas bash
+        b6a04200ad91   floryhyy/postgwas      "/bin/bash"   8 seconds ago   Up 7 seconds                                         postgwas
+        $ docker exec -it postgwas bash
         root@b6a04200ad91:/#
+        
+        if encounter this error:
+        $ docker exec -it postgwas bash                                                                                        
+        Error response from daemon: Container 153a8260ec95c9b52e557d29821144cbeed544be438ebb891956550da6e30e2d is not running   (base) 
+        Run $ docker start postgwas
+        
+  - if you need to update the docker image, delet the old one first, then repeat the above commend
+  - command for deleting:
+      
+        $ docker container rm postgwas  
+        $ docker image rm floryhyy/postgwas  
 
-# LDSC sample data download:
+# Download supplemental data:
   - Inside docker
         
-        root@b6a04200ad91:/# cd ldsc
+        root@b6a04200ad91:/# cd home
   
-  - download data
+  - download data for MetaXcan
+  
+        root@153a8260ec95:/home# cd MetaXcan/software/data
+        root@153a8260ec95:/home/MetaXcan/software/data# wget https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz
+        #check if data download successfully:
+        root@153a8260ec95:/home/MetaXcan/software/data# ls                                                                      gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz 
+        #download Models
+        root@153a8260ec95:/home/MetaXcan/software/data# wget https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar
+        root@153a8260ec95:/home/MetaXcan/software/data# tar -xvf elastic_net_eqtl.tar
+        root@153a8260ec95:/home/MetaXcan/software/data# mv elastic_net_models/ Models 
+        
+        #remove extra file, this step is not required.
+        root@153a8260ec95:/home/MetaXcan/software/data# rm elastic_net_eqtl.tar  
+        root@153a8260ec95:/home/MetaXcan/software/data# cd Models/ 
+        
+  - dowload data for HMAGMA
+        
+        root@153a8260ec95:/home/H-MAGMA# cd Codes/ 
+        root@153a8260ec95:/home/H-MAGMA/Codes# wget https://ctg.cncr.nl/software/MAGMA/prog/magma_v1.09a.zip  
+        root@153a8260ec95:/home/H-MAGMA/Codes# unzip magma_v1.09a.zip   
+        root@153a8260ec95:/home/H-MAGMA/Codes# wget https://ctg.cncr.nl/software/MAGMA/ref_data/g1000_eur.zip 
+        root@153a8260ec95:/home/H-MAGMA/Codes# unzip g1000_eur.zip    
+  
+  - download gwas file on your computer
  
-        root@b6a04200ad91:/ldsc# wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
-        root@b6a04200ad91:/ldsc# wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
-        root@b6a04200ad91:/ldsc# tar -jxvf eur_w_ld_chr.tar.bz2
-        root@b6a04200ad91:/ldsc# bunzip2 w_hm3.snplist.bz2
-        root@b6a04200ad91:/ldsc# mkdir data
-  
-  - download gwas file on your computer(not in docker container)
- 
-  The pgc file no longer allow direct download so you need to go to their website and fill a form to download manually OR you can use your own gwas file, but the below munge command will need modification
-  
-  https://www.med.unc.edu/pgc/download-results
-  
-  Alternative link to directly download sample pgc file: https://4119f3fb-a-f9436c1e-s-sites.googlegroups.com/a/broadinstitute.org/pgc-summer-school-2015/lecture-materials/pgc.cross.scz.zip
-
+    I am using sample data (chr1.assoc.dosage)from MEtaXcan's readme : https://s3.amazonaws.com/imlab-open/Data/MetaXcan/sample_data/GWAS.tar.gz . But any gwas file would work.
+    
   - Once gwas data is ready, open a new terminal on your computer and copy your gwas file into the docker container with command
   
         $ docker cp [filepath_to_your_gwas_file] [your docker container id, mine was my_postgwas]:ldsc/data
   
-  Example: $ docker cp pgc.cross.SCZ17.2013-05.txt my_postgwas:lsdc   
+  Example: $ docker cp chr1.assoc.dosage postgwas:lsdc   
   
-# munge data and get heritability score
+# Clone this repostiory and run analysis:
+  - In the docker container's /home folder, clone this repository:
+  
+        root@153a8260ec95:/home# git clone https://github.com/floryhyy/Post-GWAS-bioannotation.git
+        root@153a8260ec95:/home# cd Post-GWAS-bioannotation
+        root@153a8260ec95:/home/Post-GWAS-bioannotation# cd results/                                                            
+        root@153a8260ec95:/home/Post-GWAS-bioannotation/results# mkdir hmagma
+        root@153a8260ec95:/home/Post-GWAS-bioannotation/results# mkdir ldsc_sumstats
+        root@153a8260ec95:/home/Post-GWAS-bioannotation/results# mkdir ldsc 
+        root@153a8260ec95:/home/Post-GWAS-bioannotation/results# cd ..
+      
+  - To run analysis, use command: 'bash analysis.sh [snp col name] [beta col name] [z col name] [p value col name] [effect allele col name][ non-effect allele col name] [ncol name] [n] [column to be ignore] [gwas file name], for value that your file do not have, put 999. (Only z_col,ncol, and ignore col can be 999). (if any error happened during HMAGMA analysis, change file name in HMAGMA/Input_files folder, there is one file has an extra space in the name, just a small bug with current hmagma version)
+      Example:
+      
+        root@153a8260ec95:/home/Post-GWAS-bioannotation# bash analysis.sh SNP BETA 999 P A1 A2 999 387649 999 chr1.assoc.dosage 
+        
+  -  The code will run analysis for Spredixcan, Smultixcan,hmagma,and ldsc. You can find their result file in the 'Post-GWAS-bioannotation/results'. After you ran analysis for one file, you need to change the folder name of spredixcan result (Post-GWAS-bioannotation/results/spredxcan) to other name(like spredxcan_filename), otherwise the spredixcan and Smultixcan will not run for the next new file. 
+      Examoke:
+      
+        root@153a8260ec95:/home/Post-GWAS-bioannotation/results# mv spredxcan spredxcan_chr1.assoc.dosage 
+
+  - To update analysis code:
+      
+        root@153a8260ec95:/home/Post-GWAS-bioannotation# git pull
+      
+# format analysis result:
+  - use bash format.sh [gwas filename] to format analysis result. Significant results from smultixcan and hmagma will be generated in the results and results/hmagma folder
+    Example:
+    
+        root@153a8260ec95:/home/Post-GWAS-bioannotation# bash format.sh chr1.assoc.dosage 
+
+  
+# ldsc analysis manual
   - go back to docker container and inside ldsc folder
 
         root@131c7182addc:/ldsc# mkdir sumstats
