@@ -1,7 +1,7 @@
 #!/bin/bash
 spred_path='/home/MetaXcan/software'
 hmagma_path='/home/H-MAGMA/Codes'
-ldsc_path='/home/GitHub/ldsc'
+ldsc_path='/home/ldsc'
 current=$PWD
 
 # bash analysis.sh SNP BETA 999 P A1 A2 999 387649 999 chr1.assoc.dosage.gz
