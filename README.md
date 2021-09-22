@@ -94,7 +94,12 @@
       
         root@153a8260ec95:/home/Post-GWAS-bioannotation# git pull
       
-  
+# format analysis result:
+  - use bash format.sh [gwas filename] to format analysis result. Significant results from smultixcan and hmagma will be generated in the results and results/hmagma folder
+    Example:
+    
+        root@153a8260ec95:/home/Post-GWAS-bioannotation# bash format.sh chr1.assoc.dosage 
+
   
 # ldsc analysis manual
   - go back to docker container and inside ldsc folder
