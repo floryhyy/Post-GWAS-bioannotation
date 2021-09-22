@@ -42,8 +42,8 @@ def hmagma(current_path,filename,snp,p,ncol,n):
     print(' && '.join(result))
     return [re.sub('.+(?=/results/)','',n).replace('/result/','') for n in result]
 def ldsc(current_path,filename,n,ignore,p,a1,a2):        
-    munge = './munge_sumstats.py --out sumstats/23andMe_EverPrescriptionPain_27805_104308_132113_ldsc.txt --merge-alleles w_hm3.snplist --sumstats data/23andMe_Intimate_Loneliness.dat.gz_129635_MAF_filtered.txt.gz'
-    ld = './ldsc.py --h2 sumstats/23andMe_EverPrescriptionPain_27805_104308_132113_ldsc.txt.sumstats.gz --ref-ld-chr eur_w_ld_chr/ --w-ld-chr eur_w_ld_chr --out result/23andMe_EverPrescriptionPain_27805_104308_132113_ldsc.txt'
+    munge = 'python2 munge_sumstats.py --out sumstats/23andMe_EverPrescriptionPain_27805_104308_132113_ldsc.txt --merge-alleles w_hm3.snplist --sumstats data/23andMe_Intimate_Loneliness.dat.gz_129635_MAF_filtered.txt.gz'
+    ld = 'python2 ldsc.py --h2 sumstats/23andMe_EverPrescriptionPain_27805_104308_132113_ldsc.txt.sumstats.gz --ref-ld-chr eur_w_ld_chr/ --w-ld-chr eur_w_ld_chr --out result/23andMe_EverPrescriptionPain_27805_104308_132113_ldsc.txt'
     if type(filename)!=list:
         munge = re.sub('(?<=--out ).+(?= --merge)',current_path+'/results/ldsc_sumstats/'+filename,munge)
         munge = re.sub('(?<=--sumstats ).+',current_path+'/data/'+filename,munge)

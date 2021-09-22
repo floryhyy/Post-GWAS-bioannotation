@@ -24,15 +24,15 @@ filename=${10}
 # eval $spredxcan
 
 #run hmagma
-cd $current
-hmagma=`python run_analysis.py $current $filename hmagma $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
-cd $hmagma_path
-echo $hmagma
-eval $hmagma
-
-# run ldsc
 # cd $current
-# ldsc=`python run_analysis.py $current $filename ldsc $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
+# hmagma=`python run_analysis.py $current $filename hmagma $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
+# cd $hmagma_path
+# echo $hmagma
+# eval $hmagma
+
+#run ldsc
+cd $current
+ldsc=`python run_analysis.py $current $filename ldsc $snp $beta $z $p $a1 $a2 $ncol $n $ignore`
 
 # #if you are currently in enviorment with python3, switch enviorment below
 # eval "$(conda shell.bash hook)"
